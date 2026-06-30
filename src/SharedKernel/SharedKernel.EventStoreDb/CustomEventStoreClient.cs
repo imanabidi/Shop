@@ -77,7 +77,11 @@ public class CustomEventStoreClient
 
         if ((await result.ReadState) is ReadState.StreamNotFound) return new List<MessageEnvelope<TMessage>>();
 
-        IList<ResolvedEvent> messages = await result.ToListAsync(cancellationToken);
+        var messages = new List<ResolvedEvent>();
+        await foreach (ResolvedEvent message in result)
+        {
+            messages.Add(message);
+        }
 
         return messages.Select(m => _eventStoreMessageConverter.ToMessage<TMessage>(m)).ToList();
     }
