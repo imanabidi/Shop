@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
         <AssemblyName>VShop.Modules.Sales.API</AssemblyName>
         <RootNamespace>VShop.Modules.Sales.API</RootNamespace>
